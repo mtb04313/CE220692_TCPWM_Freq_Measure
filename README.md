@@ -1,7 +1,7 @@
 # CE220692 – PSoC 6 MCU Frequency Measurement Using TCPWM
 ## Ported to Modus Toolbox
 
-The original CE220692 was written for PSoC Creator.  This has now been ported to Modus Toolbox 3.1
+The original CE220692 was written for PSoC Creator.  This has now been ported to Modus Toolbox and tested on the PSoC 6 Prototyping Kit.
 
 ## Requirements
 
@@ -22,32 +22,11 @@ The original CE220692 was written for PSoC Creator.  This has now been ported to
 
 ## Supported kits (make variable 'TARGET')
 
-- [PSoC&trade; 62S2 Wi-Fi Bluetooth&reg; Prototyping Kit](https://www.infineon.com/CY8CPROTO-062S2-43439) (`CY8CPROTO-062S2-43439`) – Default value of `TARGET`
 - [PSoC&trade; 6 Wi-Fi Bluetooth&reg; Prototyping Kit](https://www.infineon.com/CY8CPROTO-062-4343W) (`CY8CPROTO-062-4343W`)
-- [AIROC&trade; CYW20829 Bluetooth&reg; LE Evaluation kit](https://www.infineon.com/CYW920829M2EVK-02) (`CYW920829M2EVK-02`)
-- [PSoC&trade; 6 Wi-Fi Bluetooth&reg; Pioneer Kit](https://www.infineon.com/CY8CKIT-062-WIFI-BT) (`CY8CKIT-062-WIFI-BT`)
-- [PSoC&trade; 6 Bluetooth&reg; LE Pioneer Kit](https://www.infineon.com/CY8CKIT-062-BLE) (`CY8CKIT-062-BLE`)
-- [PSoC&trade; 6 Bluetooth&reg; LE Prototyping Kit](https://www.infineon.com/CY8CPROTO-063-BLE) (`CY8CPROTO-063-BLE`)
-- [PSoC&trade; 62S2 Wi-Fi Bluetooth&reg; Pioneer Kit](https://www.infineon.com/CY8CKIT-062S2-43012) (`CY8CKIT-062S2-43012`)
-- [PSoC&trade; 62S1 Wi-Fi Bluetooth&reg; Pioneer Kit](https://www.infineon.com/CYW9P62S1-43438EVB-01) (`CYW9P62S1-43438EVB-01`)
-- [PSoC&trade; 62S1 Wi-Fi Bluetooth&reg; Pioneer Kit](https://www.infineon.com/CYW9P62S1-43012EVB-01) (`CYW9P62S1-43012EVB-01`)
-- [PSoC&trade; 64 "Secure Boot" Wi-Fi Bluetooth&reg; Pioneer Kit](https://www.infineon.com/CY8CKIT-064B0S2-4343W) (`CY8CKIT-064B0S2-4343W`)
-- [PSoC&trade; 64 Standard Secure – AWS Wi-Fi Bluetooth&reg; Pioneer Kit](https://www.infineon.com/CY8CKIT-064S0S2-4343W) (`CY8CKIT-064S0S2-4343W`)
-- [PSoC&trade; 62S4 Pioneer Kit](https://www.infineon.com/CY8CKIT-062S4) (`CY8CKIT-062S4`)
-- [PSoC&trade; 62S2 Evaluation Kit](https://www.infineon.com/CY8CEVAL-062S2) (`CY8CEVAL-062S2`, `CY8CEVAL-062S2-LAI-4373M2`, `CY8CEVAL-062S2-MUR-43439M2`, `CY8CEVAL-062S2-LAI-43439M2`, `CY8CEVAL-062S2-MUR-4373EM2`, `CY8CEVAL-062S2-MUR-4373M2`,`CY8CEVAL-062S2-CYW43022CUB`)
-- [PSoC&trade; 64 "Secure Boot" Prototyping Kit](https://www.infineon.com/CY8CPROTO-064B0S3) (`CY8CPROTO-064B0S3`)
-- [PSoC&trade; 64 "Secure Boot" Prototyping Kit](https://www.infineon.com/CY8CPROTO-064S1-SB) (`CY8CPROTO-064S1-SB`)
-- [XMC7200 Evaluation Kit](https://www.infineon.com/KIT_XMC72_EVK) (`KIT_XMC72_EVK`, `KIT_XMC72_EVK_MUR_43439M2`)
-- [PSoC&trade; 62S3 Wi-Fi Bluetooth&reg; Prototyping Kit](https://www.infineon.com/CY8CPROTO-062S3-4343W) (`CY8CPROTO-062S3-4343W`)
-- [XMC7100 Evaluation Kit](https://www.infineon.com/KIT_XMC71_EVK_LITE_V1) (`KIT_XMC71_EVK_LITE_V1`)
 
 ## Hardware setup
 
 This example uses the board's default configuration. See the kit user guide to ensure that the board is configured correctly.
-
-> **Note:** The PSoC&trade; 6 Bluetooth&reg; LE Pioneer Kit (CY8CKIT-062-BLE) and the PSoC&trade; 6 Wi-Fi Bluetooth&reg; Pioneer Kit (CY8CKIT-062-WIFI-BT) ship with KitProg2 installed. ModusToolbox&trade; requires KitProg3. Before using this code example, make sure that the board is upgraded to KitProg3. The tool and instructions are available in the [Firmware Loader](https://github.com/Infineon/Firmware-loader) GitHub repository. If you do not upgrade, you will see an error like "unable to find CMSIS-DAP device" or "KitProg firmware is out of date".
-
-The AIROC&trade; CYW20829 Bluetooth&reg; kit (CYW920829M2EVK-02) ships with KitProg3 version 2.21 installed. The ModusToolbox&trade; software requires KitProg3 with latest version 2.40. Before using this code example, make sure that the board is upgraded to KitProg3. The tool and instructions are available in the [Firmware Loader](https://github.com/Infineon/Firmware-loader) GitHub repository. If you do not upgrade, you will see an error such as "unable to find CMSIS-DAP device" or "KitProg firmware is out of date".
 
 
 ## Software setup
@@ -61,120 +40,27 @@ This example requires no additional software or tools.
 
 ## Using the code example
 
-### Create the project
+In a command-line Terminal:
 
-The ModusToolbox&trade; tools package provides the Project Creator as both a GUI tool and a command line tool.
+1. clone the project 
 
-<details><summary><b>Use Project Creator GUI</b></summary>
+   <b>git clone https://github.com/mtb04313/CE220692_TCPWM_Freq_Measure.git</b>
 
-1. Open the Project Creator GUI tool.
+2. download dependencies 
 
-   There are several ways to do this, including launching it from the dashboard or from inside the Eclipse IDE. For more details, see the [Project Creator user guide](https://www.infineon.com/ModusToolboxProjectCreator) (locally available at *{ModusToolbox&trade; install directory}/tools_{version}/project-creator/docs/project-creator.pdf*).
+   <b>make getlibs</b>
 
-2. On the **Choose Board Support Package (BSP)** page, select a kit supported by this code example. See [Supported kits](#supported-kits-make-variable-target).
+3. compile 
 
-   > **Note:** To use this code example for a kit not listed here, you may need to update the source files. If the kit does not have the required resources, the application may not work.
+   <b>make build</b>
 
-3. On the **Select Application** page:
-
-   a. Select the **Applications(s) Root Path** and the **Target IDE**.
-
-   > **Note:** Depending on how you open the Project Creator tool, these fields may be pre-selected for you.
-
-   b.	Select this code example from the list by enabling its check box.
-
-   > **Note:** You can narrow the list of displayed examples by typing in the filter box.
-
-   c. (Optional) Change the suggested **New Application Name** and **New BSP Name**.
-
-   d. Click **Create** to complete the application creation process.
-
-</details>
-
-<details><summary><b>Use Project Creator CLI</b></summary>
-
-The 'project-creator-cli' tool can be used to create applications from a CLI terminal or from within batch files or shell scripts. This tool is available in the *{ModusToolbox&trade; install directory}/tools_{version}/project-creator/* directory.
-
-Use a CLI terminal to invoke the 'project-creator-cli' tool. On Windows, use the command-line 'modus-shell' program provided in the ModusToolbox&trade; installation instead of a standard Windows command-line application. This shell provides access to all ModusToolbox&trade; tools. You can access it by typing "modus-shell" in the search box in the Windows menu. In Linux and macOS, you can use any terminal application.
-
-The following example clones the "[Hello world](https://github.com/Infineon/mtb-example-psoc6-hello-world)" application with the desired name "MyHelloWorld" configured for the *CY8CPROTO-062S2-43439* BSP into the specified working directory, *C:/mtb_projects*:
-
-   ```
-   project-creator-cli --board-id CY8CPROTO-062S2-43439 --app-id mtb-example-psoc6-hello-world --user-app-name MyHelloWorld --target-dir "C:/mtb_projects"
-   ```
-
-<mark>Update the above paragraph and commands to match your CE.
-
-The 'project-creator-cli' tool has the following arguments:
-
-Argument | Description | Required/optional
----------|-------------|-----------
-`--board-id` | Defined in the <id> field of the [BSP](https://github.com/Infineon?q=bsp-manifest&type=&language=&sort=) manifest | Required
-`--app-id`   | Defined in the <id> field of the [CE](https://github.com/Infineon?q=ce-manifest&type=&language=&sort=) manifest | Required
-`--target-dir`| Specify the directory in which the application is to be created if you prefer not to use the default current working directory | Optional
-`--user-app-name`| Specify the name of the application if you prefer to have a name other than the example's default name | Optional
-
-> **Note:** The project-creator-cli tool uses the `git clone` and `make getlibs` commands to fetch the repository and import the required libraries. For details, see the "Project creator tools" section of the [ModusToolbox&trade; tools package user guide](https://www.infineon.com/ModusToolboxUserGuide) (locally available at {ModusToolbox&trade; install directory}/docs_{version}/mtb_user_guide.pdf).
-
-</details>
-
-
-
-### Open the project
-
-After the project has been created, you can open it in your preferred development environment.
-
-
-<details><summary><b>Eclipse IDE</b></summary>
-
-If you opened the Project Creator tool from the included Eclipse IDE, the project will open in Eclipse automatically.
-
-For more details, see the [Eclipse IDE for ModusToolbox&trade; user guide](https://www.infineon.com/MTBEclipseIDEUserGuide) (locally available at *{ModusToolbox&trade; install directory}/docs_{version}/mt_ide_user_guide.pdf*).
-
-</details>
-
-
-<details><summary><b>Visual Studio (VS) Code</b></summary>
-
-Launch VS Code manually, and then open the generated *{project-name}.code-workspace* file located in the project directory.
-
-For more details, see the [Visual Studio Code for ModusToolbox&trade; user guide](https://www.infineon.com/MTBVSCodeUserGuide) (locally available at *{ModusToolbox&trade; install directory}/docs_{version}/mt_vscode_user_guide.pdf*).
-
-</details>
-
-
-<details><summary><b>Keil µVision</b></summary>
-
-Double-click the generated *{project-name}.cprj* file to launch the Keil µVision IDE.
-
-For more details, see the [Keil µVision for ModusToolbox&trade; user guide](https://www.infineon.com/MTBuVisionUserGuide) (locally available at *{ModusToolbox&trade; install directory}/docs_{version}/mt_uvision_user_guide.pdf*).
-
-</details>
-
-
-<details><summary><b>IAR Embedded Workbench</b></summary>
-
-Open IAR Embedded Workbench manually, and create a new project. Then select the generated *{project-name}.ipcf* file located in the project directory.
-
-For more details, see the [IAR Embedded Workbench for ModusToolbox&trade; user guide](https://www.infineon.com/MTBIARUserGuide) (locally available at *{ModusToolbox&trade; install directory}/docs_{version}/mt_iar_user_guide.pdf*).
-
-</details>
-
-
-<details><summary><b>Command line</b></summary>
-
-If you prefer to use the CLI, open the appropriate terminal, and navigate to the project directory. On Windows, use the command-line 'modus-shell' program; on Linux and macOS, you can use any terminal application. From there, you can run various `make` commands.
-
-For more details, see the [ModusToolbox&trade; tools package user guide](https://www.infineon.com/ModusToolboxUserGuide) (locally available at *{ModusToolbox&trade; install directory}/docs_{version}/mtb_user_guide.pdf*).
-
-</details>
+4. (optional) run Modus Toolbox and choose `Import Application in-place`
 
 
 
 ## Operation
 
 
-If using a PSoC&trade; 64 "Secure" MCU kit (like CY8CKIT-064B0S2-4343W), the PSoC&trade; 64 device must be provisioned with keys and policies before being programmed. Follow the instructions in the ["Secure Boot" SDK user guide](https://www.infineon.com/dgdlac/Infineon-PSoC_64_Secure_MCU_Secure_Boot_SDK_User_Guide-Software-v07_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0f8c361a7666) to provision the device. If the kit is already provisioned, copy-paste the keys and policy folder to the application folder.
 1. Connect the board to your PC using the provided USB cable through the KitProg3 USB connector.
 
 2. Open a terminal program and select the KitProg3 COM port. Set the serial port parameters to 8N1 and 115200 baud.
@@ -208,35 +94,49 @@ If using a PSoC&trade; 64 "Secure" MCU kit (like CY8CKIT-064B0S2-4343W), the PSo
       ```
    </details>
 
-4. After programming, the application starts automatically. Confirm that "HAL: Hello World! Example" is displayed on the UART terminal.
+4. After programming, the application starts automatically.
 
 
    **Figure 1. Terminal output on program startup**
 
-   ![](images/terminal-hello-world.png)
+   ![](images/program_output.png)
 
-5. Confirm that the kit LED blinks at approximately 1 Hz.
-
-
-## Debugging
-
-You can debug the example to step through the code.
-<details><summary><b>In Eclipse IDE</b></summary>
-Use the **\<Application Name> Debug (KitProg3_MiniProg4)** configuration in the **Quick Panel**. For details, see the "Program and debug" section in the [Eclipse IDE for ModusToolbox&trade; user guide](https://www.infineon.com/MTBEclipseIDEUserGuide).
-
-> **Note:** **(Only while debugging)** On the CM4 CPU, some code in `main()` may execute before the debugger halts at the beginning of `main()`. This means that some code executes twice – once before the debugger stops execution, and again after the debugger resets the program counter to the beginning of `main()`. See [KBA231071](https://community.infineon.com/docs/DOC-21143) to learn about this and for the workaround.
-
-</details>
-
-
-<details><summary><b>In other IDEs</b></summary>
-
-Follow the instructions in your preferred IDE.
-</details>
+5. Confirm that the measured freq is 2500 Hz.
 
 
 
 ## Design and implementation
+Read the [original Application Note: CE220692 – PSoC 6 MCU Frequency Measurement Using TCPWM](https://www.infineon.com/dgdl/Infineon-CE220692_PSoC_6_MCU_Frequency_Measurement_Using_TCPWM-Code%20Example-v03_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0e6ee95a0344) and its [source code ](https://github.com/Infineon/PSoC-6-MCU-Digital-Designs/blob/master/TCPWM/CE220692/) 
+
+### Modus Toolbox Device Configurator Settings
+Below are screenshots of settings used in the ported code example.
+
+   **Figure 2. TCPWM[0] 32-bit Counter 0**
+
+   ![](images/TCPWM_0_32bit_counter_0.png)
+
+
+   **Figure 3. TCPWM[0] 32-bit Counter 1**
+
+   ![](images/TCPWM_0_32bit_counter_1.png)
+
+   **Figure 4. TCPWM[0] 32-bit Counter 2**
+
+   ![](images/TCPWM_0_32bit_counter_2.png)
+
+
+   **Figure 5. 16-bit Clock Divider 0**
+
+   ![](images/16bit_divider_0.png)
+
+   **Figure 6. 16-bit Clock Divider 1**
+
+   ![](images/16bit_divider_1.png)
+
+   **Figure 7. 16-bit Clock Divider 2**
+
+   ![](images/16bit_divider_2.png)
+
 
 ### Resources and settings
 
@@ -273,28 +173,6 @@ Infineon provides a wealth of data at [www.infineon.com](https://www.infineon.co
 ## Document history
 
 
-Document title: *CE223541* - *HAL: Hello world*
-
- Version | Description of change
- ------- | ---------------------
- 1.0.0   | New code example
- 1.1.0   | Updated to support ModusToolbox&trade; v2.1, add new kits<br> Cosmetic changes to code
- 1.1.1   | Minor documentation updates
- 2.0.0   | Major update to support ModusToolbox&trade; v2.2, added support for new kits<br> This version is not backward compatible with ModusToolbox&trade; software v2.1
- 2.0.1   | Minor documentation updates, added feedback link
- 2.1.0   | Added support for new kits
- 2.2.0   | Added support for new kits
- 3.0.0   | Updated to BSP v3.X and added support for new kit
- 4.0.0   | Major update to support ModusToolbox&trade; v3.0. This version is not backward compatible with previous versions of ModusToolbox&trade;. <br> Added support for KIT_XMC72_EVK & PSoC&trade; 64 Standard Secure Kit
- 4.1.0   | Added support for CY8CPROTO-064B0S3 and CY8CPROTO-064S1-SB
- 4.2.0   | Added support for CY8CEVAL-062S2-LAI-43439M2
- 4.3.0   | Added support for CY8CPROTO-062S2-43439
- 4.4.0   | Added support for CY8CEVAL-062S2-MUR-4373EM2, CY8CEVAL-062S2-MUR-4373M2 
- 4.5.0   | Added support for CYW920829M2EVK-02 and replace retarget_io_init() to retarget_io_init_fc()
- 4.6.0   | Added support for KIT_XMC72_EVK_MUR_43439M2 and updated to support ModusToolbox&trade; v3.1.
- 4.7.0   | Added support for KIT_XMC71_EVK_LITE_V1
- 4.8.0   | Added support for CY8CEVAL-062S2-CYW43022CUB 
-<br>
 
 
 
